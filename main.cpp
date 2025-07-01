@@ -41,7 +41,7 @@ void characterCreation()
     {
         do {
             cout << "Invalid Response, please try again with either m, f or n\n";
-            cin >> job;
+            cin >> gen;
         } while (!playerCharacter.setGender(gen));
     }
 

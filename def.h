@@ -214,6 +214,16 @@ public: string getPronoun(pronounType type)
 }
 };
 
+struct Spell
+{
+	float manaCost;
+	
+public:virtual void spellEffect()
+	{
+	cout << "Your spell does nothing. ";
+
+	}
+};
 
 //list<Job> jList;
 
