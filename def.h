@@ -4,11 +4,11 @@ using namespace std;
 
 struct Job
 {
-	string jName;
-	float healthMultiplier;
-	float manaMultiplier;
-	float defenseMultiplier;
-	int armorClass;
+	string jName = "Job";
+	float healthMultiplier = 1;
+	float manaMultiplier = 1;
+	float defenseMultiplier = 1;
+	int armorClass = 10;
 };
 
 struct Enemy
