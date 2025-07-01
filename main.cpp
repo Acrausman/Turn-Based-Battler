@@ -5,6 +5,7 @@ using namespace std;
 
 bool gameStart;
 
+Player playerCharacter;
 void characterCreation();
 
 int main()
@@ -13,12 +14,12 @@ int main()
 
     cout << "Welcome to the Arena! ";
     while(!gameStart) characterCreation();
+    playerCharacter.statSetup();
 
 }
 
 void characterCreation()
 {
-    Player playerCharacter;
     cout << "What's your name?\n";
     string name;
     cin >> name;
