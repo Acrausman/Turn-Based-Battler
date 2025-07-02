@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <Algorithm>
 using namespace std;
 
 struct Job
@@ -14,11 +15,28 @@ struct Job
 struct Enemy
 {
 	string eName;
-	float maxHealth;
-	float maxMana;
-	float defense;
-	float armorClass;
+	private:float maxHealth;
+	private:float currHealth;
+	private:float maxMana;
+	private:float currMana;
+	private:float defense;
+	private:float armorClass;
 	//virtual void attack()
+public: bool takeDamage(int value)
+	{
+		float damage = value - defense;
+		float totalDmg = clamp(damage, 0.0f, 100.0f);
+
+		if (currHealth - totalDmg <= 0)
+		{
+			return true;
+		}
+		else
+		{
+			currHealth -= totalDmg;
+			return false;
+		}
+	}
 
 };
 
@@ -33,11 +51,28 @@ class Player
 	enum Gender {Male, Female, Neutral};
 	Gender pGender;
 
-	float maxHealth;
-	float currHealth;
-	float maxMana;
-	float currMana;
-	float defense;
+	private: float maxHealth;
+	private: float currHealth;
+	private: float maxMana;
+	private: float currMana;
+	private: float defense;
+
+
+public: bool takeDamage(int value)
+{
+	float damage = value - defense;
+	float totalDmg = clamp(damage, 0.0f, 100.0f);
+
+	if (currHealth - totalDmg <= 0)
+	{
+		return true;
+	}
+	else
+	{
+		currHealth -= totalDmg;
+		return false;
+	}
+}
 
 public: void statSetup()
 {
@@ -228,4 +263,3 @@ public:virtual void spellEffect()
 //list<Job> jList;
 
 //Enemies (Name, Health, Mana, Defense, AC, Attack Function)
-Enemy Goblin{ "Goblin", 5, 0, 1,10 };
